@@ -3,11 +3,11 @@ import OddCycleBound.DenseRegion.ExpansionAssembly
 import OddCycleBound.BasicBounds
 
 /-!
-# The cycles `C_3`, `C_5`, `C_7` (Section 4)
+# The cycles `C_3`, `C_5`, `C_7` (Section 5)
 
 For `m ∈ {3, 5, 7}` every excursion polynomial `P_{m,r}(q; ·)` is pointwise nonnegative when
-`q = 1 - p ≤ 1/2` (Proposition 4.1, `multiKernel_nonneg_short`). Lemma 3.3 then gives
-Theorem 1.3 and Theorem 1.1 for these cycles throughout `p ≥ 1/2`. For `p ≤ 1/2` the bound of
+`q = 1 - p ≤ 1/2` (Proposition 5.1, `multiKernel_nonneg_short`). Lemma 4.3 then gives
+Theorem 1.2 and Theorem 1.1 for these cycles throughout `p ≥ 1/2`. For `p ≤ 1/2` the bound of
 Theorem 1.1 is trivial.
 -/
 
@@ -30,7 +30,7 @@ lemma neckSum_ge_baseline_short {m : ℕ} (hW : IsGraphon W μ) (hm : m = 3 ∨ 
       multiKernel_nonneg_short hm hr.1 hr.2 (by linarith [edgeDensity_le_one hW]) (by linarith)
         L hlen
 
-/-- **Proposition 4.1, consequence for Theorem 1.3:** strengthened extended commonality for
+/-- **Proposition 5.1, consequence for Theorem 1.2:** strengthened extended commonality for
 `m ∈ {3, 5, 7}` and `p ≥ 1/2`. -/
 theorem commonality_short {m : ℕ} (hW : IsGraphon W μ) (hm : m = 3 ∨ m = 5 ∨ m = 7)
     (hp : 1 / 2 ≤ edgeDensity W μ) :
@@ -40,7 +40,7 @@ theorem commonality_short {m : ℕ} (hW : IsGraphon W μ) (hm : m = 3 ∨ m = 5 
   DenseRegion.commonality_of_neckSum_ge hW (odd_of_short hm).1 (odd_of_short hm).2
     (neckSum_ge_baseline_short hW hm hp)
 
-/-- **Proposition 4.1, consequence for Theorem 1.1:** the odd-cycle Goodman bound for
+/-- **Proposition 5.1, consequence for Theorem 1.1:** the odd-cycle Goodman bound for
 `m ∈ {3, 5, 7}` and `p ≥ 1/2`. -/
 theorem cycle_bound_short {m : ℕ} (hW : IsGraphon W μ) (hm : m = 3 ∨ m = 5 ∨ m = 7)
     (hp : 1 / 2 ≤ edgeDensity W μ) :

@@ -2,7 +2,7 @@ import OddCycleBound.DenseRegion.Diagonal.DenseRegionEndgame
 import OddCycleBound.BasicBounds
 
 /-!
-# The balanced complete `k`-partite graphon (Corollary 1.2, minimality)
+# The balanced complete `k`-partite graphon and its minimality
 
 The balanced complete `k`-partite graphon `W_k` is modelled on the finite probability space
 `Fin k` with the uniform measure: `completePartite k i j = 1` if `i ≠ j` and `0` otherwise.
@@ -121,8 +121,9 @@ theorem cycleDensity_completePartite_odd {k m : ℕ} (hk : 1 ≤ k) (hm : Odd m)
   field_simp
   ring
 
-/-- **Corollary 1.2**, minimality: for every `k ≥ 2` and odd `m ≥ 3`, the balanced complete
-`k`-partite graphon minimises the `C_m`-density among graphons of edge density `1 - 1/k`. -/
+/-- Minimality, from Theorem 1.1 and equation `eq:intro-kpartite-value`: for every `k ≥ 2` and
+odd `m ≥ 3`, the balanced complete `k`-partite graphon minimises the `C_m`-density among
+graphons of edge density `1 - 1/k`. The case `k = 2` is trivial because `t(C_m, W_2) = 0`. -/
 theorem completePartite_minimises {Ω : Type*} [MeasurableSpace Ω] {μ : Measure Ω}
     [IsProbabilityMeasure μ] {W : Ω → Ω → ℝ} {k m : ℕ} (hk : 2 ≤ k) (hm : Odd m)
     (hm3 : 3 ≤ m) (hW : IsGraphon W μ) (hp : edgeDensity W μ = 1 - 1 / k) :

@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this formalisation, please cite it using the metadata in this file."
+type: software
+title: "OddCycleBound: A Lean 4 formalisation of Goodman-type lower bounds for odd cycles I: The dense regime"
+authors:
+  - family-names: Im
+    given-names: Seonghyuk
+    affiliation: "Center for AI and Natural Sciences, Korea Institute for Advanced Study (KIAS)"
+  - family-names: Kim
+    given-names: Taeyoung
+    affiliation: "School of Computing, Korea Advanced Institute of Science and Technology (KAIST); School of Computational Sciences, Korea Institute for Advanced Study (KIAS)"
+  - family-names: Yang
+    given-names: Hongseok
+    affiliation: "School of Computing, Korea Advanced Institute of Science and Technology (KAIST); School of Computational Sciences, Korea Institute for Advanced Study (KIAS)"
+license: MIT
+repository-code: "https://github.com/mekty2012/OddCycleGoodman-lean"
+abstract: >-
+  A Lean 4 / Mathlib formalisation of the odd-cycle Goodman bound
+  t(C_m, W) >= p^m - p(1 - p)^(m - 1) for every graphon W of edge density p and
+  every odd m >= 3, together with the strengthened commonality inequality and
+  the equality characterisation for p >= 2/3 from the paper "Goodman-type lower
+  bounds for odd cycles I: The dense regime".
+keywords:
+  - Homomorphism densities
+  - Goodman bound
+  - Graphon
+  - Symmetric Polynomial
+  - Lean 4
+  - Mathlib

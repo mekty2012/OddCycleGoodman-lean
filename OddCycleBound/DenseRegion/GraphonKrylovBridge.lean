@@ -351,7 +351,7 @@ theorem momentPhi_specMoment_eq_graphonAtomicMoment (hW : IsGraphon W mu)
   intro j hj
   exact specMoment_eq_graphonAtomicMoment hW hj
 
-/-- Lemma 3.3: `Φ_m ≥ 0` as soon as every excursion polynomial `P_{m,r}` is nonnegative on
+/-- Lemma 4.3: `Φ_m ≥ 0` as soon as every excursion polynomial `P_{m,r}` is nonnegative on
 `[-1/2, 1/2]^r`. -/
 theorem momentPhi_specMoment_nonneg' {m : ℕ} (hm : Odd m) (hm3 : 3 ≤ m)
     (hW : IsGraphon W mu) (q : ℝ)

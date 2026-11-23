@@ -1,7 +1,7 @@
 import Mathlib
 
 /-!
-# Words in `P` and `Q`, blocks, and excursions (combinatorics of Section 3)
+# Words in `P` and `Q`, blocks, and excursions (combinatorics of Section 4)
 
 A word is a sequence of letters `P` (`false`) and `Q` (`true`).
 

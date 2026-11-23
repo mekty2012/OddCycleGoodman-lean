@@ -2,7 +2,7 @@ import OddCycleBound.Equality.SpectralStep
 import OddCycleBound.KPartite
 
 /-!
-# The clique decomposition in the proof of Proposition 6.2
+# The clique decomposition in the proof of Proposition 7.2
 
 Let `U` be an a.e. `q`-regular graphon (`q > 0`) that is `{0,1}`-valued a.e. and satisfies
 `∫ U(x,z) U(z,y) dz = q U(x,y)` for a.e. `(x,y)` (equation `eq:equal-neighbourhoods`).

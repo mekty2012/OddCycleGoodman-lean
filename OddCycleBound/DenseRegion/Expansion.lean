@@ -182,7 +182,7 @@ lemma atomicIntegral_nonneg_of (w lam : ι → ℝ) (hw : ∀ i, 0 ≤ w i)
         · exact hP i
         · exact hL x hx
 
-/-- Lemma 3.3 for an atomic measure: the `r`-th excursion term is nonnegative as soon as the
+/-- Lemma 4.3 for an atomic measure: the `r`-th excursion term is nonnegative as soon as the
 excursion polynomial `P_{m,r}` is nonnegative at all atoms. -/
 theorem momentKernelTerm_nonneg_of_atomic' {m r : ℕ} (hr : r ≠ 0)
     (hn : 1 ≤ m - 2 * r) (q : ℝ) (w lam : ι → ℝ)

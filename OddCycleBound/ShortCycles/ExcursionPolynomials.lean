@@ -1,7 +1,7 @@
 import OddCycleBound.DenseRegion.SymmetricPoly
 
 /-!
-# Excursion polynomials of the short odd cycles (Proposition 4.1)
+# Excursion polynomials of the short odd cycles (Proposition 5.1)
 
 Closed forms of the excursion polynomials `P_{m,r}(q; λ₁, …, λ_r) = multiKernel m r q [λ₁, …, λ_r]`
 for `m ∈ {3, 5, 7}`, the completed squares of the paper (for `P_{7,1}` with the denominator `D(q)`
@@ -50,13 +50,13 @@ lemma multiKernel_seven_one (q ℓ : ℝ) :
   norm_num [multiKernel, hsym_cons, Finset.sum_range_succ, List.replicate]
   ring
 
-/-- The polynomial `D(q)` of Proposition 4.1. -/
+/-- The polynomial `D(q)` of Proposition 5.1. -/
 noncomputable def shortD (q : ℝ) : ℝ := 288 * q ^ 2 - 336 * q + 119
 
-/-- The polynomial `C(q)` of Proposition 4.1. -/
+/-- The polynomial `C(q)` of Proposition 5.1. -/
 noncomputable def shortC (q : ℝ) : ℝ := 24 * q ^ 3 - 42 * q ^ 2 + 28 * q - 7
 
-/-- The polynomial `N(q)` of Proposition 4.1. -/
+/-- The polynomial `N(q)` of Proposition 5.1. -/
 noncomputable def shortN (q : ℝ) : ℝ :=
   5184 * q ^ 6 - 18144 * q ^ 5 + 28602 * q ^ 4 - 25802 * q ^ 3 + 13874 * q ^ 2 - 4165 * q + 539
 
@@ -109,7 +109,7 @@ lemma multiKernel_seven_one_pos {q : ℝ} (hq : q ≤ 1 / 2) (ℓ : ℝ) :
   have h24D : 0 < 24 * shortD q := by positivity
   exact pos_of_mul_pos_right h24 h24D.le
 
-/-- **Proposition 4.1.** For `m ∈ {3, 5, 7}` and `1 ≤ r ≤ (m - 1)/2`, the excursion polynomial
+/-- **Proposition 5.1.** For `m ∈ {3, 5, 7}` and `1 ≤ r ≤ (m - 1)/2`, the excursion polynomial
 `P_{m,r}(q; λ₁, …, λ_r)` is nonnegative for every `q ≤ 1/2` and all real `λᵢ`. The hypothesis
 `0 ≤ q` of the paper is not needed. -/
 theorem multiKernel_nonneg_short {m r : ℕ} (hm : m = 3 ∨ m = 5 ∨ m = 7) (hr : 1 ≤ r)

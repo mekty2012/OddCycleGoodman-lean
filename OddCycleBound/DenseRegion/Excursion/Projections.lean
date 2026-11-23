@@ -2,7 +2,7 @@ import OddCycleBound.Excursion.Tuples
 import OddCycleBound.DenseRegion.GraphonKrylovBridge
 
 /-!
-# Projection words and their evaluation (Section 3)
+# Projection words and their evaluation (Section 4)
 
 For a graphon `V` (later `V = U = 1 - W` and `V = W`) the integral operator `T_V` splits as
 `T_V = P T_V + Q T_V` with `P` the projection onto constants and `Q = I - P`. Both summands are

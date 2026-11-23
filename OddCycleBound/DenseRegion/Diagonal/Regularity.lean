@@ -1,9 +1,9 @@
 import OddCycleBound.DenseRegion.Diagonal.Commonality
 
 /-!
-# Degree variance and equality in strengthened extended commonality (Proposition 6.1)
+# Degree variance and equality in strengthened extended commonality (Proposition 7.1)
 
-`Ψ_m(W)` is the gap in Theorem 1.3. Through the excursion expansion it equals
+`Ψ_m(W)` is the gap in Theorem 1.2. Through the excursion expansion it equals
 `momentPhi m q (specMoment U μ)`, whose top excursion term (`r = (m-1)/2`) is
 `(m - 1) · (s 0)^((m-1)/2)` with `s 0 = ∫ (d_W - p)²`, while every other term is nonnegative.
 -/
@@ -15,7 +15,7 @@ namespace OddCycleBound.DenseRegion
 
 variable {Ω : Type*} [MeasurableSpace Ω] {μ : Measure Ω} [IsProbabilityMeasure μ] {W : Ω → Ω → ℝ}
 
-/-- The gap `Ψ_m(W)` between the two sides of Theorem 1.3. -/
+/-- The gap `Ψ_m(W)` between the two sides of Theorem 1.2. -/
 noncomputable def commonalityGap (W : Ω → Ω → ℝ) (μ : Measure Ω) (m : ℕ) : ℝ :=
   cycleDensity μ W m + cycleDensity μ (compl W) m - pathDensity (compl W) μ (m - 1)
     - (edgeDensity W μ ^ m - edgeDensity W μ * (1 - edgeDensity W μ) ^ (m - 1))
@@ -95,7 +95,7 @@ lemma momentPhi_ge_top (hW : IsGraphon W μ) (hp : 2 / 3 ≤ edgeDensity W μ) {
   push_cast
   linarith
 
-/-- **Proposition 6.1**, equation `eq:degree-variance-gap`:
+/-- **Proposition 7.1**, equation `eq:degree-variance-gap`:
 `Ψ_m(W) ≥ (m - 1) (∫ (d_W - p)²)^((m-1)/2)` for `p ≥ 2/3`. -/
 theorem commonality_gap_ge_degree_variance (hW : IsGraphon W μ)
     (hp : 2 / 3 ≤ edgeDensity W μ) {m : ℕ} (hm : Odd m) (hm3 : 3 ≤ m) :
@@ -119,15 +119,15 @@ lemma momentPhi_zero_seq (m : ℕ) (q : ℝ) : momentPhi m q (fun _ => 0) = 0 :=
   refine Finset.sum_eq_zero fun k _ => ?_
   simp [momentConv_succ]
 
-/-- The backward implication of Proposition 6.1 holds at every edge density: a `p`-regular
-graphon attains equality in Theorem 1.3. -/
+/-- The backward implication of Proposition 7.1 holds at every edge density: a `p`-regular
+graphon attains equality in Theorem 1.2. -/
 theorem commonalityGap_eq_zero_of_regular (hW : IsGraphon W μ) {m : ℕ} (hm : Odd m)
     (hm3 : 3 ≤ m) (hreg : ∀ᵐ x ∂μ, degree W μ x = edgeDensity W μ) :
     commonalityGap W μ m = 0 := by
   rw [commonalityGap_eq_momentPhi hW hm hm3, specMoment_compl_eq_zero_of_regular hW hreg,
     momentPhi_zero_seq]
 
-/-- **Proposition 6.1**: for `p ≥ 2/3`, `Ψ_m(W) = 0` if and only if `W` is a.e. `p`-regular. -/
+/-- **Proposition 7.1**: for `p ≥ 2/3`, `Ψ_m(W) = 0` if and only if `W` is a.e. `p`-regular. -/
 theorem commonality_eq_iff_regular (hW : IsGraphon W μ) (hp : 2 / 3 ≤ edgeDensity W μ)
     {m : ℕ} (hm : Odd m) (hm3 : 3 ≤ m) :
     commonalityGap W μ m = 0 ↔ ∀ᵐ x ∂μ, degree W μ x = edgeDensity W μ := by

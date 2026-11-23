@@ -2,7 +2,7 @@ import OddCycleBound.DenseRegion.Excursion.Projections
 import OddCycleBound.Excursion.Bijections
 
 /-!
-# Excursion expansions (Lemmas 3.1, 3.2, 3.3)
+# Excursion expansions (Lemmas 4.1, 4.2, 4.3)
 
 * `cycleDensity_excursions` (Lemma `lem:cycle-excursions`): expanding the `m`-fold kernel product
   over words, the all-`P` word gives `q^m`, the all-`Q` word gives `τ = Tr(A^m)`, and the words
@@ -51,7 +51,7 @@ lemma trace_listKer_replicate_false (hV : IsGraphon V μ) (n : ℕ) :
   rw [List.replicate_succ, trace_listKer_false_cons hV _ x, ← List.replicate_succ,
     applyWord_replicate_false hV, mul_one]
 
-/-! ### Cycle densities by excursions (Lemma 3.1) -/
+/-! ### Cycle densities by excursions (Lemma 4.1) -/
 
 /-- The words with no excursions are the two constant words. -/
 lemma filter_numMarks_eq_zero (n : ℕ) :
@@ -108,7 +108,7 @@ lemma sum_pq_marks (hV : IsGraphon V μ) {n r : ℕ} (hr : 1 ≤ r) :
     rw [length_blockWord] at hlen
     omega
 
-/-- **Lemma 3.1** (`lem:cycle-excursions`), in moment form: with `q = edgeDensity V`,
+/-- **Lemma 4.1** (`lem:cycle-excursions`), in moment form: with `q = edgeDensity V`,
 `s = specMoment V` and `τ` the trace of the all-`Q` word,
 `t(C_{n+1}, V) = q^{n+1} + τ + ∑_{r ≥ 1, 2r ≤ n+1} ((n+1)/r) ∑_{tuples} q^{∑α} ∏ s(βᵢ)`. -/
 theorem cycleDensity_excursions (hV : IsGraphon V μ) (n : ℕ) :
@@ -152,7 +152,7 @@ theorem cycleDensity_excursions (hV : IsGraphon V μ) (n : ℕ) :
   · rw [mul_zero] at hcount
     exact (mul_eq_zero.mp hcount).resolve_left hk
 
-/-! ### Path densities by excursions (Lemma 3.2) -/
+/-! ### Path densities by excursions (Lemma 4.2) -/
 
 lemma kernelOp_finset_sum (hV : IsGraphon V μ) {ι : Type*} (s : Finset ι) {f : ι → Ω → ℝ}
     (hf : ∀ i ∈ s, Good (f i)) (x : Ω) :
@@ -197,7 +197,7 @@ lemma sum_range_ite_le (K c : ℕ) (f : ℕ → ℝ) :
   · refine Finset.sum_eq_zero fun N hN => ?_
     simp only [Finset.mem_filter] at hN; omega
 
-/-- **Lemma 3.2** (`lem:path-excursions`), in moment form:
+/-- **Lemma 4.2** (`lem:path-excursions`), in moment form:
 `t(P_k, V) = ∑_{r, 2r ≤ k} ∑_j h_{k-2r-j}(q^{×(r+1)}) · momentConv s r j`. -/
 theorem pathDensity_excursions (hV : IsGraphon V μ) (k : ℕ) :
     pathDensity V μ k = ∑ r ∈ Finset.range (k + 1),
@@ -243,7 +243,7 @@ theorem pathDensity_excursions (hV : IsGraphon V μ) (k : ℕ) :
     ring
   · rfl
 
-/-! ### The reduction to excursion polynomials (Lemma 3.3) -/
+/-! ### The reduction to excursion polynomials (Lemma 4.3) -/
 
 lemma momentConv_neg_pow (s : ℕ → ℝ) : ∀ r j : ℕ,
     momentConv (fun i => (-1 : ℝ) ^ i * s i) r j = (-1 : ℝ) ^ j * momentConv s r j
@@ -336,7 +336,7 @@ lemma conv_hsym_one_momentConv_zero (q : ℝ) (s : ℕ → ℝ) (n : ℕ) :
     rw [hj, momentConv_zero_succ, mul_zero]
   · intro h; simp at h
 
-/-- **Lemma 3.3** (`lem:polynomial-reduction`): adding the cycle expansions of `W` and of
+/-- **Lemma 4.3** (`lem:polynomial-reduction`): adding the cycle expansions of `W` and of
 `U = 1 - W` (the all-`Q` words cancel because `m` is odd) and subtracting the path expansion of
 `U` gives `t(C_m, W) + t(C_m, U) - t(P_{m-1}, U) = p^m + q^m - q^{m-1} + Φ_m`
 (equation `eq:commonality-gap`), with `Φ_m = momentPhi m q (specMoment U)`. -/

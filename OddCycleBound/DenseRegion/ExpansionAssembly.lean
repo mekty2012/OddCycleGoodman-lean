@@ -23,7 +23,7 @@ theorem neckSum_ge_baseline_of_diagKernel_nonneg {m : ℕ} (hW : IsGraphon W mu)
   linarith [momentPhi_specMoment_nonneg hm hm3 (isGraphon_compl hW)
     (1 - edgeDensity W mu) hdiag]
 
-/-- Lemma 3.3 and the comparison after Theorem 1.3, assuming the pointwise nonnegativity of the
+/-- Lemma 4.3 and the comparison after Theorem 1.2, assuming the pointwise nonnegativity of the
 excursion polynomials. -/
 theorem neckSum_ge_baseline_of_multiKernel_nonneg {m : ℕ} (hW : IsGraphon W mu)
     (hm : Odd m) (hm3 : 3 ≤ m)

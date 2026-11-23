@@ -2,7 +2,7 @@ import OddCycleBound.Equality.Cliques
 import OddCycleBound.DenseRegion.Diagonal.Regularity
 
 /-!
-# Uniqueness of the extremal graphon (Proposition 6.2 and Corollary 1.2)
+# Uniqueness of the extremal graphon (Proposition 7.2, the equality case of Theorem 1.1)
 
 "Unique up to graphon equivalence" is formalised as: `W` is, almost everywhere, the pullback of
 `completePartite k` along a measurable measure-preserving map `φ : Ω → Fin k`.
@@ -142,7 +142,7 @@ end Pullback
 
 /-! ### Equality in Theorem 1.1 -/
 
-/-- Equality in Theorem 1.1 forces equality in Theorem 1.3 and `t(C_m, U) = t(P_{m-1}, U)`
+/-- Equality in Theorem 1.1 forces equality in Theorem 1.2 and `t(C_m, U) = t(P_{m-1}, U)`
 (equation `eq:one-colour-gap`). -/
 lemma gaps_eq_zero_of_eq (hW : IsGraphon W μ) (hp : 2 / 3 ≤ edgeDensity W μ) {m : ℕ}
     (hm : Odd m) (hm3 : 3 ≤ m)
@@ -162,7 +162,7 @@ lemma gaps_eq_zero_of_eq (hW : IsGraphon W μ) (hp : 2 / 3 ≤ edgeDensity W μ)
         (edgeDensity W μ ^ m - edgeDensity W μ * (1 - edgeDensity W μ) ^ (m - 1)) := rfl
   constructor <;> linarith
 
-/-- **Proposition 6.2 (forward implication) and the uniqueness in Corollary 1.2.**
+/-- **Proposition 7.2 (forward implication), the equality case of Theorem 1.1.**
 If a graphon of edge density `2/3 ≤ p < 1` attains equality in Theorem 1.1, then `p = 1 - 1/k`
 for an integer `k ≥ 3`, and `W` is a.e. the pullback of the balanced complete `k`-partite graphon
 along a measurable measure-preserving map `φ : Ω → Fin k`. -/
@@ -207,7 +207,7 @@ theorem completePartite_unique {m : ℕ} (hm : Odd m) (hm3 : 3 ≤ m) (hW : IsGr
     unfold completePartite
     split_ifs <;> norm_num
 
-/-- **Proposition 6.2 (backward implication).** Every a.e. pullback of `W_k` with `k ≥ 2` attains
+/-- **Proposition 7.2 (backward implication).** Every a.e. pullback of `W_k` with `k ≥ 2` attains
 equality in Theorem 1.1 for every odd `m ≥ 3`. -/
 theorem pullback_attains_bound (hWg : IsGraphon W μ) {k : ℕ} (hk : 1 ≤ k) (φ : Ω → Fin k)
     (hφ : Measurable φ) (hmap : Measure.map φ μ = uniformFin k)

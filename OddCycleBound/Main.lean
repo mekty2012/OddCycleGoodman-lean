@@ -17,14 +17,15 @@ theorem dense_cycle_bound {m : ℕ} (hW : IsGraphon W μ) (hp : 2 / 3 ≤ edgeDe
       edgeDensity W μ ^ m - edgeDensity W μ * (1 - edgeDensity W μ) ^ (m - 1) :=
   DenseRegion.dense_region_cycle_bound_unconditional hW hp hm hm3
 
-/-- **Theorem 1.1** (odd-cycle Goodman bound for `p ≥ 2/3`). -/
+/-- The inequality of **Theorem 1.1** (odd-cycle Goodman bound for `p ≥ 2/3`). -/
 theorem dense_region_main_theorem {m : ℕ} (hW : IsGraphon W μ) (hp : 2 / 3 ≤ edgeDensity W μ)
     (hm : Odd m) (hm3 : 3 ≤ m) :
     cycleDensity μ W m ≥
       edgeDensity W μ ^ m - edgeDensity W μ * (1 - edgeDensity W μ) ^ (m - 1) :=
   dense_cycle_bound hW hp hm hm3
 
-/-- **Theorem 1.3** (strengthened extended commonality), for `p ≥ 2/3` and every odd `m ≥ 3`. -/
+/-- The inequality of **Theorem 1.2** (strengthened extended commonality), for `p ≥ 2/3` and
+every odd `m ≥ 3`. -/
 theorem strengthened_commonality_bound {m : ℕ} (hW : IsGraphon W μ)
     (hp : 2 / 3 ≤ edgeDensity W μ) (hm : Odd m) (hm3 : 3 ≤ m) :
     cycleDensity μ W m + cycleDensity μ (compl W) m ≥
@@ -32,7 +33,7 @@ theorem strengthened_commonality_bound {m : ℕ} (hW : IsGraphon W μ)
         (pathDensity (compl W) μ (m - 1) - (1 - edgeDensity W μ) ^ (m - 1)) :=
   DenseRegion.dense_region_commonality_bound hW hp hm hm3
 
-/-- **Theorem 1.3** for `m ∈ {3, 5, 7}` and `p ≥ 1/2` (Proposition 4.1). -/
+/-- The inequality of **Theorem 1.2** for `m ∈ {3, 5, 7}` and `p ≥ 1/2` (Proposition 5.1). -/
 theorem strengthened_commonality_bound_short {m : ℕ} (hW : IsGraphon W μ)
     (hm : m = 3 ∨ m = 5 ∨ m = 7) (hp : 1 / 2 ≤ edgeDensity W μ) :
     cycleDensity μ W m + cycleDensity μ (compl W) m ≥
@@ -40,8 +41,8 @@ theorem strengthened_commonality_bound_short {m : ℕ} (hW : IsGraphon W μ)
         (pathDensity (compl W) μ (m - 1) - (1 - edgeDensity W μ) ^ (m - 1)) :=
   commonality_short hW hm hp
 
-/-- **Proposition 6.1**, equation `eq:degree-variance-gap`: for `p ≥ 2/3` the gap `Ψ_m(W)` in
-Theorem 1.3 is at least `(m - 1) (∫ (d_W - p)²)^((m-1)/2)`. -/
+/-- **Proposition 7.1**, equation `eq:degree-variance-gap`: for `p ≥ 2/3` the gap `Ψ_m(W)` in
+Theorem 1.2 is at least `(m - 1) (∫ (d_W - p)²)^((m-1)/2)`. -/
 theorem commonality_gap_ge_degree_variance {m : ℕ} (hW : IsGraphon W μ)
     (hp : 2 / 3 ≤ edgeDensity W μ) (hm : Odd m) (hm3 : 3 ≤ m) :
     cycleDensity μ W m + cycleDensity μ (compl W) m - pathDensity (compl W) μ (m - 1)
@@ -49,7 +50,7 @@ theorem commonality_gap_ge_degree_variance {m : ℕ} (hW : IsGraphon W μ)
       (m - 1 : ℝ) * (∫ x, (degree W μ x - edgeDensity W μ) ^ 2 ∂μ) ^ ((m - 1) / 2) :=
   DenseRegion.commonality_gap_ge_degree_variance hW hp hm hm3
 
-/-- **Proposition 6.1**: for `p ≥ 2/3`, equality holds in Theorem 1.3 if and only if `W` is
+/-- **Proposition 7.1**: for `p ≥ 2/3`, equality holds in Theorem 1.2 if and only if `W` is
 a.e. `p`-regular. -/
 theorem commonality_eq_iff_regular {m : ℕ} (hW : IsGraphon W μ)
     (hp : 2 / 3 ≤ edgeDensity W μ) (hm : Odd m) (hm3 : 3 ≤ m) :
@@ -108,22 +109,23 @@ theorem odd_cycle_bound {m : ℕ} (hW : IsGraphon W μ) (hm : Odd m) (hm3 : 3 �
 universe u
 
 /-- The results of the paper in one universe-polymorphic statement:
-Theorem 1.1; Theorem 1.3 for `p ≥ 2/3` and, for `m ∈ {3, 5, 7}`, for `p ≥ 1/2`; equation
-`eq:intro-kpartite-value`; Corollary 1.2 (minimality for `k ≥ 2`, uniqueness for `k ≥ 3`, the
-latter being Proposition 6.2); and Proposition 6.1. -/
+the inequality of Theorem 1.1; the inequality of Theorem 1.2 for `p ≥ 2/3` and, for
+`m ∈ {3, 5, 7}`, for `p ≥ 1/2`; equation `eq:intro-kpartite-value`; minimality of `W_k` for
+`k ≥ 2`; the forward implication of Proposition 7.2 (uniqueness for `k ≥ 3`); and
+Proposition 7.1. -/
 theorem main_results :
-    -- Theorem 1.1
+    -- Theorem 1.1, inequality
     (∀ {Ω : Type u} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ]
         (W : Ω → Ω → ℝ) (m : ℕ), IsGraphon W μ → 2 / 3 ≤ edgeDensity W μ → Odd m → 3 ≤ m →
         cycleDensity μ W m ≥
           edgeDensity W μ ^ m - edgeDensity W μ * (1 - edgeDensity W μ) ^ (m - 1)) ∧
-    -- Theorem 1.3, `p ≥ 2/3`
+    -- Theorem 1.2, inequality, `p ≥ 2/3`
     (∀ {Ω : Type u} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ]
         (W : Ω → Ω → ℝ) (m : ℕ), IsGraphon W μ → 2 / 3 ≤ edgeDensity W μ → Odd m → 3 ≤ m →
         cycleDensity μ W m + cycleDensity μ (compl W) m ≥
           edgeDensity W μ ^ m + (1 - edgeDensity W μ) ^ m +
             (pathDensity (compl W) μ (m - 1) - (1 - edgeDensity W μ) ^ (m - 1))) ∧
-    -- Theorem 1.3, `m ∈ {3, 5, 7}` and `p ≥ 1/2`
+    -- Theorem 1.2, inequality, `m ∈ {3, 5, 7}` and `p ≥ 1/2`
     (∀ {Ω : Type u} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ]
         (W : Ω → Ω → ℝ) (m : ℕ), IsGraphon W μ → (m = 3 ∨ m = 5 ∨ m = 7) →
         1 / 2 ≤ edgeDensity W μ →
@@ -134,12 +136,12 @@ theorem main_results :
     (∀ k m : ℕ, 1 ≤ k → 1 ≤ m →
         cycleDensity (uniformFin k) (completePartite k) m =
           ((k - 1 : ℝ) / k) ^ m + (k - 1 : ℝ) * (-1 / (k : ℝ)) ^ m) ∧
-    -- Corollary 1.2, minimality
+    -- Minimality of `W_k`, from Theorem 1.1 and equation `eq:intro-kpartite-value`
     (∀ {Ω : Type u} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ]
         (W : Ω → Ω → ℝ) (k m : ℕ), 2 ≤ k → Odd m → 3 ≤ m → IsGraphon W μ →
         edgeDensity W μ = 1 - 1 / k →
         cycleDensity (uniformFin k) (completePartite k) m ≤ cycleDensity μ W m) ∧
-    -- Corollary 1.2, uniqueness (Proposition 6.2)
+    -- Equality case of Theorem 1.1 for `p < 1` (Proposition 7.2, forward implication)
     (∀ {Ω : Type u} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ]
         (W : Ω → Ω → ℝ) (m : ℕ), Odd m → 3 ≤ m → IsGraphon W μ →
         2 / 3 ≤ edgeDensity W μ → edgeDensity W μ < 1 →
@@ -148,7 +150,7 @@ theorem main_results :
         ∃ k : ℕ, 3 ≤ k ∧ edgeDensity W μ = 1 - 1 / k ∧
           ∃ φ : Ω → Fin k, Measurable φ ∧ Measure.map φ μ = uniformFin k ∧
             ∀ᵐ x ∂(μ.prod μ), W x.1 x.2 = completePartite k (φ x.1) (φ x.2)) ∧
-    -- Proposition 6.1
+    -- Proposition 7.1
     (∀ {Ω : Type u} [MeasurableSpace Ω] (μ : Measure Ω) [IsProbabilityMeasure μ]
         (W : Ω → Ω → ℝ) (m : ℕ), IsGraphon W μ → 2 / 3 ≤ edgeDensity W μ → Odd m → 3 ≤ m →
         (cycleDensity μ W m + cycleDensity μ (compl W) m - pathDensity (compl W) μ (m - 1)

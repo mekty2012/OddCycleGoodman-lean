@@ -1,10 +1,10 @@
 import OddCycleBound.Necklace
 
 /-!
-# Regular graphons and the spectral step of Proposition 6.2
+# Regular graphons and the spectral step of Proposition 7.2
 
 For an a.e. `q`-regular graphon `U` we prove, without eigenvalues, the facts used in the proof of
-Proposition 6.2: `t(P_k, U) = q^k`, and the Hilbert–Schmidt version of the operator-norm bound
+Proposition 7.2: `t(P_k, U) = q^k`, and the Hilbert–Schmidt version of the operator-norm bound
 `‖T_U‖ ≤ q`, namely `‖U ∘ K‖_HS ≤ q ‖K‖_HS`. With `m = 2a + 1`, the cycle density
 `t(C_m, U)` is the Hilbert–Schmidt pairing of the `a`-fold and `(a+1)`-fold kernel powers, and the
 chain `t(C_m, U) ≤ q^{m-2} ∫∫ U² ≤ q^{m-1}` together with its equality cases gives `U ∈ {0,1}` and

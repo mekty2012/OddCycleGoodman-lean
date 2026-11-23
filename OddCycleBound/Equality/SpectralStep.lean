@@ -1,7 +1,7 @@
 import OddCycleBound.Equality.RegularKernel
 
 /-!
-# The spectral step of Proposition 6.2, without eigenvalues
+# The spectral step of Proposition 7.2, without eigenvalues
 
 Let `U` be an a.e. `q`-regular graphon with `q > 0` and `t(C_m, U) = q^{m-1}` for an odd `m ≥ 3`.
 Writing `T n = trace (compPow U n) = t(C_{n+1}, U)`, the Hilbert–Schmidt pairings of kernel
@@ -144,7 +144,7 @@ lemma zero_or_one_of_hsInner_self_eq (hU : IsGraphon U μ)
   · exact Or.inl h
   · exact Or.inr (by linarith)
 
-/-- **The spectral step of Proposition 6.2.** If `U` is an a.e. `q`-regular graphon with `q > 0`
+/-- **The spectral step of Proposition 7.2.** If `U` is an a.e. `q`-regular graphon with `q > 0`
 and `t(C_m, U) = q^{m-1}` for an odd `m ≥ 3`, then `U` is `{0,1}`-valued a.e. and
 `∫ U(x,z) U(z,y) dz = q U(x,y)` for a.e. `(x,y)`. -/
 theorem regular_cycle_equality (hU : IsGraphon U μ) {q : ℝ} (hq : 0 < q)
